@@ -12,7 +12,6 @@ def get_msg(csv_file_path, template):
     with open(csv_file_path, 'r') as file:
         headers = file.readline().split(',')
         headers[len(headers) - 1] = headers[len(headers) - 1][:-1]
-    # i am opening the csv file two times above and below INTENTIONALLY, changing will cause error
     with open(csv_file_path, 'r') as file:
         data = csv.DictReader(file)
         for row in data:
