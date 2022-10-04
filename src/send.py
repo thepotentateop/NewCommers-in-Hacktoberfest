@@ -56,7 +56,7 @@ def send_emails(server: SMTP, template):
         multipart_msg["Subject"] = message.splitlines()[0]
         multipart_msg["From"] = DISPLAY_NAME + f' <{SENDER_EMAIL}>'
         multipart_msg["To"] = receiver
-
+ 
         text = message
         html = markdown.markdown(text)
 
