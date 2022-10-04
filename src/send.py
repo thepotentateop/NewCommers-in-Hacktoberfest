@@ -9,6 +9,7 @@ from email.mime.base import MIMEBase
 from email import encoders
 
 
+# this file is important for mail send
 def get_msg(csv_file_path, template):
     with open(csv_file_path, 'r') as file:
         headers = file.readline().split(',')
