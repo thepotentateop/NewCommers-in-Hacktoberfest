@@ -106,3 +106,5 @@ if __name__ == "__main__":
     send_emails(server, template)
 
     server.quit()
+    
+# ThePotentateOp
