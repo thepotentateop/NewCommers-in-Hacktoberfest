@@ -3,9 +3,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DISPLAY_NAME = os.getenv('display_name')
-SENDER_EMAIL = os.getenv('sender_email')
-PASSWORD = os.getenv('password')
+DISPLAY_NAME = os.getenv('display_name')          " Get actual Name from env 
+SENDER_EMAIL = os.getenv('sender_email')          " Get actual Email from env
+PASSWORD = os.getenv('password')                  " Get actual Password from env
 
 try:
     assert DISPLAY_NAME
