@@ -1,17 +1,30 @@
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+def load_credentials():
+    """
+    Load email credentials from environment variables.
 
-DISPLAY_NAME = os.getenv('display_name')          # Get actual Name from env 
-SENDER_EMAIL = os.getenv('sender_email')          # Get actual Email from env
-PASSWORD = os.getenv('password')                  # Get actual Password from env
+    Returns:
+        tuple: (display_name, sender_email, password)
+    """
+    load_dotenv()
 
-try:
-    assert DISPLAY_NAME
-    assert SENDER_EMAIL
-    assert PASSWORD
-except AssertionError:
-    print('Please set up credentials. Read https://github.com/aahnik/automailer#usage')
-else:
-    print('Credentials loaded successfully')
+    display_name = os.getenv('DISPLAY_NAME')
+    sender_email = os.getenv('SENDER_EMAIL')
+    password = os.getenv('PASSWORD')
+
+    if not all([display_name, sender_email, password]):
+        raise ValueError(
+            "Missing credentials. Please refer to https://github.com/aahnik/automailer#usage"
+        )
+
+    return display_name, sender_email, password
+
+
+if __name__ == "__main__":
+    try:
+        display_name, sender_email, password = load_credentials()
+        print("Credentials loaded successfully")
+    except ValueError as e:
+        print(e)
